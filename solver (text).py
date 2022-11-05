@@ -5,8 +5,7 @@ def solve(bo):
     :param bo: 2d list of ints
     :return: solution
     """
-    find = find_empty(bo)
-    if find:
+    if find := find_empty(bo):
         row, col = find
     else:
         return True
@@ -33,12 +32,12 @@ def valid(bo, pos, num):
     """
 
     # Check row
-    for i in range(0, len(bo)):
+    for i in range(len(bo)):
         if bo[pos[0]][i] == num and pos[1] != i:
             return False
 
     # Check Col
-    for i in range(0, len(bo)):
+    for i in range(len(bo)):
         if bo[i][pos[1]] == num and pos[1] != i:
             return False
 
@@ -86,5 +85,5 @@ def print_board(bo):
             if j == 8:
                 print(bo[i][j], end="\n")
             else:
-                print(str(bo[i][j]) + " ", end="")
+                print(f"{str(bo[i][j])} ", end="")
 
