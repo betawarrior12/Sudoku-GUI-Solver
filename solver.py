@@ -1,12 +1,11 @@
 # solver.py
 
 def solve(bo):
-    find = find_empty(bo)
-    if not find:
-        return True
-    else:
+    if find := find_empty(bo):
         row, col = find
 
+    else:
+        return True
     for i in range(1,10):
         if valid(bo, i, (row, col)):
             bo[row][col] = i
@@ -54,7 +53,7 @@ def print_board(bo):
             if j == 8:
                 print(bo[i][j])
             else:
-                print(str(bo[i][j]) + " ", end="")
+                print(f"{str(bo[i][j])} ", end="")
 
 
 def find_empty(bo):
